@@ -1,0 +1,222 @@
+# =========================
+# .gitignore for AI / Robotics / C++ / Python
+# =========================
+
+# --- General ---
+*.swp
+*.swo
+*.bak
+*.tmp
+*.temp
+*.log
+*.out
+*.DS_Store
+*.lock
+*.cache
+*.pid
+
+# --- OS / IDE / Editor ---
+.vscode/
+.idea/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+*.iml
+Thumbs.db
+ehthumbs.db
+
+# --- Build / Binary Outputs ---
+build/
+build*/
+bin/
+lib/
+dist/
+out/
+obj/
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+
+# --- CMake / Make ---
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+install_manifest.txt
+Testing/
+CTestTestfile.cmake
+
+# --- ROS2 / colcon / catkin ---
+install/
+devel/
+log/
+build_isolated/
+devel_isolated/
+.colcon/
+ament_ws/
+*.db3
+*.bag
+*.bag.active
+*.bag.tmp
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+*.ipynb_checkpoints/
+.env
+.venv
+env/
+venv/
+pip-wheel-metadata/
+*.egg
+MANIFEST
+site-packages/
+
+# --- Jupyter / Notebooks ---
+.ipynb_checkpoints/
+*.nbconvert/
+*.nbconvert.ipynb
+
+# --- Machine Learning / DL / Training ---
+runs/
+logs/
+checkpoints/
+weights/
+models/
+*.ckpt
+*.h5
+*.onnx
+*.tflite
+*.pth
+*.pt
+*.pb
+*.npy
+*.npz
+
+# --- Datasets / Cache / Results ---
+data/
+dataset/
+datasets/
+results/
+tmp/
+output/
+outputs/
+*.csv
+*.tsv
+*.json
+*.xml
+*.yaml
+*.yml
+
+# --- SLAM / 3D Reconstruction / Vision ---
+map/
+maps/
+trajectory/
+trajectories/
+frames/
+frame_*.jpg
+frame_*.png
+*.pgm
+*.pcd
+*.ply
+*.obj
+*.stl
+*.bag
+*.g2o
+
+# --- Simulation / Robotics ---
+gazebo/
+ignition/
+worlds/
+meshes/
+models/
+logs/
+rviz/
+urdf/
+sdf/
+*.world
+*.urdf
+*.xacro
+
+# --- Temporary or Experiment Artifacts ---
+test/
+tests/output/
+temp/
+tmp/
+debug/
+experiment_*/
+experiments/
+
+# --- Compiled / Generated Files ---
+*.o
+*.obj
+*.d
+*.mod
+*.cmd
+*.lst
+
+# --- Configuration & Secrets ---
+*.ini
+*.cfg
+*.conf
+*.toml
+*.json
+*.yaml
+*.yml
+!default*.yaml
+!example*.json
+!sample*.cfg
+.env
+secrets.txt
+credentials.*
+
+# --- Documentation Build ---
+docs/_build/
+docs/build/
+*.aux
+*.toc
+*.idx
+*.log
+*.pdf
+*.out
+
+# --- Misc Tools / Cache ---
+.mypy_cache/
+.pytest_cache/
+.hypothesis/
+__pypackages__/
+.cache/
+coverage/
+.tox/
+.nox/
+.clangd/
+.ccls-cache/
+
+# --- CUDA / GPU Build ---
+*.cubin
+*.ptx
+*.fatbin
+*.sass
+*.nvvp
+
+# --- 3D Gaussian Splatting / Point Cloud Cache ---
+gaussians/
+splat_data/
+render_cache/
+nerf_cache/
+colmap_output/
+instant-ngp/
+nerfstudio/
+
+# --- Research / Notes / Misc ---
+notes/
+notebooks/tmp/
+drafts/
+experiments/
