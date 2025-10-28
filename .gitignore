@@ -25,6 +25,22 @@
 Thumbs.db
 ehthumbs.db
 
+# --- Visual Studio ---
+.vs/
+*.vcxproj.user
+*.vcxproj.filters
+*.suo
+*.user
+*.ncb
+*.opensdf
+*.sdf
+*.tlog
+*.lastbuildstate
+Debug/
+Release/
+x64/
+x86/
+
 # --- Build / Binary Outputs ---
 build/
 build*/
