@@ -1,4 +1,4 @@
-# OpenCV Tutorials
+# opencv / OpenCV Tutorials
 
 > Study notes and example codes from the official OpenCV tutorials
 
@@ -13,7 +13,7 @@
 - Development environment: Visual Studio Code
 - OpenCV version: 4.12.0
 - Compiler: GCC
-- OS: Windows, Linux
+- OS: Linux
 
 ## Notes / References
 
