@@ -1,4 +1,4 @@
-# Commit Convention for Study Repository
+# Commit Format for Study Repository
 
 Keep commits clear, consistent, and concise.
 
@@ -15,7 +15,8 @@ Keep commits clear, consistent, and concise.
 | refactor | Improve existing code without changing behavior |
 | docs | Update documentation or comments |
 | test | Add or modify tests |
-| chore | Update configs, dependencies, or minor tasks |
+| chore | Update dependencies, or minor tasks |
+| conf | Update configs |
 | study | Add study notes, experiments, or research content |
 
 ## 3. Scope Examples
@@ -34,9 +35,9 @@ Keep commits clear, consistent, and concise.
 
 ## 4. Tips
 
-- Use **present tense** (“add”, not “added”).  
-- Keep the summary **under 60 characters**.  
-- Add a body (optional) for explanations or context.  
+- Use **present tense** (“add”, not “added”).
+- Keep the summary **under 60 characters**.
+- Add a body (optional) for explanations or context.
 - Use English for all commit messages.
 
 ---
