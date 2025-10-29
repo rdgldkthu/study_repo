@@ -10,9 +10,9 @@
 ## Setup
 
 - Development environment: Visual Studio Code / Linux terminal
-- CMake version: 3.23+ recommended
-- Compiler: GCC, Clang, or MSVC
-- OS: Windows, Linux, or macOS
+- CMake version: 3.23
+- Compiler: GCC
+- OS: Linux
 
 ## Notes / References
 
