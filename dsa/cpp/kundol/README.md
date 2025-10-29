@@ -10,8 +10,8 @@
 
 ## Setup
 
-- Development Environment: Visual Studio Code
-- Compiler: GCC / MSVC (C++17 or later)
+- Development environment: Visual Studio Code
+- Compiler: GCC
 - OS: Windows / Linux
 
 ## Notes / References
