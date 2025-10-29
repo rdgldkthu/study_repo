@@ -68,18 +68,22 @@ int main(int argc, char **argv) {
 
     // Default
     cout << "R (default) = " << endl << R << endl << endl;
+
     // Python
     cout << "R (python)  = " << endl
          << format(R, Formatter::FMT_PYTHON) << endl
          << endl;
+
     // CSV
     cout << "R (csv)     = " << endl
          << format(R, Formatter::FMT_CSV) << endl
          << endl;
+
     // Numpy
     cout << "R (numpy)   = " << endl
          << format(R, Formatter::FMT_NUMPY) << endl
          << endl;
+
     // C
     cout << "R (c)       = " << endl
          << format(R, Formatter::FMT_C) << endl
@@ -90,15 +94,18 @@ int main(int argc, char **argv) {
     // 2D Point
     Point2f P(5, 1);
     cout << "Point (2D) = " << P << endl << endl;
+
     // 3D Point
     Point3f P3f(2, 6, 7);
     cout << "Point (3D) = " << P3f << endl << endl;
+
     // std::vector via cv::Mat
     vector<float> v;
     v.push_back((float)CV_PI);
     v.push_back(2);
     v.push_back(3.01f);
     cout << "Vector of floats via Mat = " << Mat(v) << endl << endl;
+
     // std::vector of points
     vector<Point2f> vPoints(20);
     for (size_t i = 0; i < vPoints.size(); ++i)
