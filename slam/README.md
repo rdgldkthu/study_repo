@@ -11,10 +11,11 @@
 
 ## Setup
 
-- OS: Ubuntu 18.04 or later
-- Compiler: GCC 7.5 or later
+- Development environment: Visual Studio Code
+- Build System: CMake
 - Libraries: Eigen, Sophus, OpenCV, Ceres, g2o
-- Build System: CMake 2.8 or later
+- Compiler: GCC
+- OS: Linux
 
 ## Notes / References
 
