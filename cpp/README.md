@@ -11,9 +11,9 @@
 
 ## Setup
 
-- Development environment: Visual Studio Code / Visual Studio
-- Compiler: GCC / MSVC (C++17 or later)
-- OS: Windows or Linux
+- Development environment: Visual Studio
+- Compiler: MSVC
+- OS: Windows
 
 ## Notes / References
 
