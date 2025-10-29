@@ -11,16 +11,16 @@
 
 ## Setup
 
-- **OS**: Ubuntu 18.04 or later
-- **Compiler**: GCC 7.5 or later
-- **Libraries**: Eigen, Sophus, OpenCV, Ceres, g2o
-- **Build System**: CMake 2.8 or later
+- OS: Ubuntu 18.04 or later
+- Compiler: GCC 7.5 or later
+- Libraries: Eigen, Sophus, OpenCV, Ceres, g2o
+- Build System: CMake 2.8 or later
 
 ## Notes / References
 
 - GitHub repo: [slambook2](https://github.com/gaoxiang12/slambook2)
 
-- **Chapters**:
+- Chapters:
   - Ch1: Background Knowledge
   - Ch2: Introduction to SLAM
   - Ch3: 3D Rigid Body Motion
