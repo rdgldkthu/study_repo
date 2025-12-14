@@ -4,66 +4,11 @@ using namespace std;
 
 int R, C;
 char a[1000][1000];
-int visited[1000][1000];
-int fire_lut[1000][1000];
-vector<pair<int, int>> fire;
+int joe_time[1000][1000];
+int fire_time[1000][1000];
 queue<pair<int, int>> q;
 const int dy[] = {-1, 0, 1, 0};
 const int dx[] = {0, 1, 0, -1};
-
-void spreadFireBFS(int y0, int x0) {
-  memset(visited, 0, sizeof(visited));
-  q.push({y0, x0});
-  visited[y0][x0] = 1;
-  while (!q.empty()) {
-    auto [y, x] = q.front();
-    q.pop();
-    for (int i = 0; i < 4; ++i) {
-      int ny = y + dy[i];
-      int nx = x + dx[i];
-      if (ny < 0 || ny >= R || nx < 0 || nx >= C)
-        continue;
-      if (a[ny][nx] != '#' && !visited[ny][nx]) {
-        visited[ny][nx] = 1;
-        int new_time = fire_lut[y][x] + 1;
-        if (fire_lut[ny][nx] == 0)
-          fire_lut[ny][nx] = new_time;
-        else
-          fire_lut[ny][nx] = min(fire_lut[ny][nx], new_time);
-        q.push({ny, nx});
-      }
-    }
-  }
-}
-
-int escapeBFS(int y0, int x0) {
-  memset(visited, 0, sizeof(visited));
-  visited[y0][x0] = 1;
-  q.push({y0, x0});
-  while (!q.empty()) {
-    auto [y, x] = q.front();
-    q.pop();
-
-    // Exit condition
-    if (y == 0 || y == R - 1 || x == 0 || x == C - 1) {
-      return visited[y][x];
-    }
-
-    for (int i = 0; i < 4; ++i) {
-      int ny = y + dy[i];
-      int nx = x + dx[i];
-      if (ny < 0 || ny >= R || nx < 0 || nx >= C)
-        continue;
-      if (a[ny][nx] != '#' && !visited[ny][nx]) {
-        visited[ny][nx] = visited[y][x] + 1;
-        // Push to queue only if Joe can reach this square before fire does
-        if (visited[ny][nx] < fire_lut[ny][nx])
-          q.push({ny, nx});
-      }
-    }
-  }
-  return 0;
-}
 
 int main(int argc, char **argv) {
   ios_base::sync_with_stdio(false);
@@ -72,7 +17,7 @@ int main(int argc, char **argv) {
 
   cin >> R >> C;
 
-  pair<int, int> init_J;
+  int y0, x0;
   for (int i = 0; i < R; ++i) {
     string row;
     cin >> row;
@@ -80,28 +25,64 @@ int main(int argc, char **argv) {
       char col = row[j];
       a[i][j] = col;
       if (col == 'J') {
-        init_J = {i, j};
+        y0 = i;
+        x0 = j;
       }
       if (col == 'F') {
-        fire.push_back({i, j});
-        fire_lut[i][j] = 1;
+        q.push({i, j});
+        fire_time[i][j] = 1;
       }
     }
   }
 
-  // BFS to spread fire and record time of arrival on each square
-  for (auto &[y, x] : fire) {
-    spreadFireBFS(y, x);
+  // If no fire, set fire_lut to a big enough value
+  if (q.empty()) {
+    memset(fire_time, R * C, sizeof(fire_time));
   }
-  // If there is no fire at all, fill fire_lut with a big enough value
-  if (fire.empty()) {
-    memset(fire_lut, R * C, sizeof(fire_lut));
+
+  // BFS to spread fire and record time of arrival on each square
+  while (!q.empty()) {
+    auto [y, x] = q.front();
+    q.pop();
+    for (int i = 0; i < 4; ++i) {
+      int ny = y + dy[i];
+      int nx = x + dx[i];
+      if (ny < 0 || ny >= R || nx < 0 || nx >= C)
+        continue;
+      if (a[ny][nx] != '#' && !fire_time[ny][nx]) {
+        fire_time[ny][nx] = fire_time[y][x] + 1;
+        q.push({ny, nx});
+      }
+    }
   }
 
   // BFS to find a possible escape path
-  int time = escapeBFS(init_J.first, init_J.second);
+  joe_time[y0][x0] = 1;
+  q.push({y0, x0});
+  while (!q.empty()) {
+    auto [y, x] = q.front();
+    q.pop();
 
-  cout << (time ? to_string(time) : "IMPOSSIBLE") << endl;
+    // Exit condition
+    if (y == 0 || y == R - 1 || x == 0 || x == C - 1) {
+      cout << joe_time[y][x] << endl;
+      return 0;
+    }
 
+    for (int i = 0; i < 4; ++i) {
+      int ny = y + dy[i];
+      int nx = x + dx[i];
+      if (ny < 0 || ny >= R || nx < 0 || nx >= C)
+        continue;
+      if (a[ny][nx] != '#' && !joe_time[ny][nx]) {
+        joe_time[ny][nx] = joe_time[y][x] + 1;
+        // Push to queue only if Joe can reach this square before fire does
+        if (joe_time[ny][nx] < fire_time[ny][nx])
+          q.push({ny, nx});
+      }
+    }
+  }
+
+  cout << "IMPOSSIBLE" << endl;
   return 0;
 }
