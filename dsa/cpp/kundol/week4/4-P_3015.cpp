@@ -21,14 +21,13 @@ int main(int argc, char **argv) {
       st.pop();
     }
 
-    if (!st.empty()) {
-      if (st.top().first == cur_h) {
-        ans += st.top().second;
-        same_h_cnt = st.top().second + 1;
-        st.pop();
-        if (!st.empty()) ans++;
-      } else ans++;
+    if (!st.empty() && st.top().first == cur_h) {
+      ans += st.top().second;
+      same_h_cnt = st.top().second + 1;
+      st.pop();
     }
+
+    if (!st.empty()) ans++;
 
     st.push({cur_h, same_h_cnt});
   }
