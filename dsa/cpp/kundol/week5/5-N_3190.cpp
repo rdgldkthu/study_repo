@@ -1,14 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+enum Direction { UP, RIGHT, DOWN, LEFT };
 char C;
-int N, K, L, X, dir, ny, nx, cy = 0, cx = 0, time_s = 0, ans = 0;
-int grid[100][100];
+int N, K, L, X, ny, nx, cy = 0, cx = 0, dir = RIGHT, time_s = 0, grid[100][100];
 const int dy[4] = {-1, 0, 1 ,0};
 const int dx[4] = {0, 1, 0, -1};
-queue<pair<int, char>> orders;
 queue<pair<int, int>> q;
-enum Direction { UP, RIGHT, DOWN, LEFT };
+queue<pair<int, char>> orders;
 
 int main(int argc, char **argv) {
   ios_base::sync_with_stdio(false);
@@ -27,9 +26,6 @@ int main(int argc, char **argv) {
     orders.push({X, C});
   }
 
-
-  dir = RIGHT;
-  time_s = 0;
   q.push({0,0});
   grid[0][0] = -1;
   while (true) {
